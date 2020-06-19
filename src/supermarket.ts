@@ -2,7 +2,6 @@ export class Item {
   sku: string;
   name: string;
   itemPrice: number;
-  hasDiscount: boolean = false;
 
   constructor(sku: string, name: string, itemPrice: number) {
     this.sku = sku;
@@ -18,7 +17,6 @@ export class Item {
 export class DiscountItem extends Item {
   discountPrice: number;
   discountQuantity: number;
-  hasDiscount: boolean = true;
 
   constructor(
     sku: string,
