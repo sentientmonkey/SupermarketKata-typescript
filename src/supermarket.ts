@@ -11,10 +11,10 @@ export class Item {
 }
 
 export class Stock {
-  items: Item[] = [
-    new Item("BEAN", "beans", 0.65),
-    new Item("SAUS", "sausage", 1.25),
-  ];
+  items: Item[];
+  constructor(items: Item[]) {
+    this.items = items;
+  }
 
   lookup(sku: string): Item | undefined {
     return this.items.find(item => item.sku === sku);
@@ -22,8 +22,12 @@ export class Stock {
 }
 
 export class ShoppingCart {
-  stock: Stock = new Stock();
+  stock: Stock;
   items: Item[] = [];
+
+  constructor(stock: Stock) {
+    this.stock = stock;
+  }
 
   scan(sku: string) {
     const item = this.stock.lookup(sku);
